@@ -1,19 +1,22 @@
-package com.example.finalProject.Controller;
+package com.example.finalProject.controller;
 
+import com.example.finalProject.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class WomanClothController {
+    @Autowired
+    private ProductService productService;
+
     @GetMapping("/woman")
-    public String woman_cloth() {
+    public String woman_cloth(Model model) {
+        model.addAttribute("item",productService.findAll());
         return "woman_cloth";
     }
 
-    @GetMapping("/jacket")
-    public String jacket1() {
-        return "woman_jacket";
-    }
 }
 

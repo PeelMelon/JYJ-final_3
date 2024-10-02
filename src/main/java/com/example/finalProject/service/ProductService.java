@@ -76,4 +76,12 @@ public class ProductService {
         se.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
+
+    public List<ProductDTO> findAll(){
+        List<ProductEntity> renk = productRepository.findAll();
+        List<ProductDTO> dto = new ArrayList<>();
+        renk.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
 }
+
